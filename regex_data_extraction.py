@@ -1,6 +1,6 @@
 import re
 
-# Sample string containing different data types
+# Sample string generated, containing different data types
 sample_text = '''
     Contact us at info@example.com or support@company.co.uk.
     Visit our website: https://www.example.com or http://subdomain.example.org/page.
@@ -31,6 +31,16 @@ sample_text = '''
 
 
 # 7. Extracting HTML Tags
+
+
+#regex to match HTML tags
+html_tag_pattern = r'<[^>]+>'
+
+#extracting all HTML tags using re.findall
+html_tags = re.findall(html_tag_pattern, sample_text)
+
+#outputting the extracted tags
+print("Extracted HTML Tags:", html_tags)
 
 
 # 8. Extracting Currency Amounts
