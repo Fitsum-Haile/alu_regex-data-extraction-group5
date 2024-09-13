@@ -50,7 +50,15 @@ print("Extracted URLs:", extracted_urls)
 
 
 # 6. Extracting Credit Card Numbers
+print()
+# Regular expression pattern for credit card numbers
+cc_regex = r'\b\d{4}(?:[-\s])?\d{4}(?:[-\s])?\d{4}(?:[-\s])?\d{4}\b'
 
+# Find all matches in the given text
+credit_card_numbers = re.findall(cc_regex, sample_text)
+
+print("Extracted Credit card numbers:", credit_card_numbers)
+print()
 
 # 7. Extracting HTML Tags
 
