@@ -26,9 +26,9 @@ for email in emails:
 
 
 # 4. Extracting Time in 12-hour or 24-hour format
-t12-hour = re.findall(r'([01]?[0-9]):([0-5][0-9])\s*(AM|PM)', sample_text)
+t12hour = re.findall(r'([01]?[0-9]):([0-5][0-9])\s*(AM|PM)', sample_text)
 print("12-hour format times:")
-for t in t12-hour:
+for t in t12hour:
     hour, minute, period = t
     print(f"{hour}:{minute} {period}")
 
