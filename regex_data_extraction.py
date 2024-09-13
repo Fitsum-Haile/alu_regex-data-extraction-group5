@@ -1,6 +1,6 @@
 import re
 
-# Function to load the sample text from a file
+# Function to load sample text from a file
 def load_sample_text(filename):
     with open(filename, 'r') as file:
         return file.read()
@@ -19,7 +19,7 @@ def load_sample_text(filename):
 
 # 7. Extracting HTML Tags
 def extract_html_tags(text):
-    html_tag_pattern = r'<[^>]+>'
+    html_tag_pattern = r'</?[a-zA-Z][a-zA-Z0-9\-]*(\s+[a-zA-Z\-]+(\s*=\s*(".*?"|\'.*?\'|[^\s>]+))?)*\s*/?>'
     return re.findall(html_tag_pattern, text)
 
 # 8. Extracting Currency Amounts
