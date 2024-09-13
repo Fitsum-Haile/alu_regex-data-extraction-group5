@@ -1,90 +1,56 @@
 import re
 
-# Sample string generated, containing different data types
-sample_text = '''
-    Contact us at info@example.com or support@company.co.uk.
-    Visit our website: https://www.example.com or http://subdomain.example.org/page.
-    Call us at (123) 456-7890, 123-456-7890, or 123.456.7890.
-    Credit card details: 1234 5678 9012 3456 or 1234-5678-9012-3456.
-    The event starts at 14:30 (24-hour format) and ends at 2:30 PM (12-hour format).
-    Tags: <div class="container"> <p>Paragraph</p> <img src="image.jpg" alt="description">
-    Trending: #SoftwareEngineering #ThisIsAHashtag
-    Prices: $19.99, $1,234.56
-'''
+# Function to load the sample text from a file
+def load_sample_text(filename):
+    with open(filename, 'r') as file:
+        return file.read()
 
 # 1. Extracting Email Addresses
 
-
 # 2. Extracting URLs
-print()
-import re
-
-def extract_urls(text):
-    # Regular expression pattern for URLs
-    url_regex = r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'
-    
-    # Find all matches in the given text
-    urls = re.findall(url_regex, text)
-    
-    return urls
-
-# Example usage
-example_text = """
-    Visit https://www.example.com for more info.
-    You can also check out http://subdomain.example.org/page.
-    Invalid URL: htt://invalid.com should not be captured.
-"""
-print()
-
-# Call the function and print the result
-print()
-extracted_urls = extract_urls(example_text)
-print("Extracted URLs:", extracted_urls)
-print()
 
 # 3. Extracting Phone Numbers (various formats)
-print()
-def extract_phone_numbers(text):
-    phone_pattern = r'\+?\d{1,3}\s*[-.() ]?\d{1,15}\s*[-.() ]?\d{1,15}'
-    phone_numbers = re.findall(phone_pattern, text)
-    return phone_numbers
-# Example usage
-text = "Contact us at +1 (123) 456-7890 or 123.456.7890"
-print("Extracted phone number:", extract_phone_numbers(text))
-print()
 
 # 4. Extracting Time in 12-hour or 24-hour format
 
-
 # 5. Extracting Hashtags
 
-
 # 6. Extracting Credit Card Numbers
-print()
-# Regular expression pattern for credit card numbers
-cc_regex = r'\b\d{4}(?:[-\s])?\d{4}(?:[-\s])?\d{4}(?:[-\s])?\d{4}\b'
-
-# Find all matches in the given text
-credit_card_numbers = re.findall(cc_regex, sample_text)
-print("Extracted Credit card numbers:", credit_card_numbers)
-print()
 
 # 7. Extracting HTML Tags
-
-
-#regex to match HTML tags
-print()
-html_tag_pattern = r'<[^>]+>'
-print()
-
-#extracting all HTML tags using re.findall
-print()
-html_tags = re.findall(html_tag_pattern, sample_text)
-print()
-
-#outputting the extracted tags
-print()
-print("Extracted HTML Tags:", html_tags)
-print()
+def extract_html_tags(text):
+    html_tag_pattern = r'<[^>]+>'
+    return re.findall(html_tag_pattern, text)
 
 # 8. Extracting Currency Amounts
+
+# Main function to load the text and run the extractions
+def main():
+    # Load the sample text from the file
+    sample_text = load_sample_text('sample_text.txt')
+
+    # Extract and print different types of data
+    print()
+    print("------------------------------------------------------------")
+    print("Extracted information")
+    print("------------------------------------------------------------")
+    print()
+    print("Extracted Email Addresses:", extract_emails(sample_text))
+    print()
+    print("Extracted URLs:", extract_urls(sample_text))
+    print()
+    print("Extracted Phone Numbers:", extract_phone_numbers(sample_text))
+    print()
+    print("Extracted Times:", extract_times(sample_text))
+    print()
+    print("Extracted Hashtags:", extract_hashtags(sample_text))
+    print()
+    print("Extracted Credit Card Numbers:", extract_credit_cards(sample_text))
+    print()
+    print("Extracted HTML Tags:", extract_html_tags(sample_text))
+    print()
+    print("Extracted Currency Amounts:", extract_currency_amounts(sample_text))
+    print()
+
+if __name__ == '__main__':
+    main()
