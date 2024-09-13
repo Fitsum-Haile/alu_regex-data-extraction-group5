@@ -8,18 +8,13 @@ def load_sample_text(filename):
 # 1. Extracting Email Addresses
 
 # 2. Extracting URLs
-
-<<<<<<< HEAD
 def extract_urls(text):
     url_pattern = r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'
     return re.findall(url_pattern, text)
 
-
-=======
->>>>>>> b717810721cf25a3ea4854041e9c53e5c9fc9fa3
 # 3. Extracting Phone Numbers (various formats)
 
-# 4. Extracting Time in 12-hour or 24-hour format
+# 4. Extracting Time in 12-hour or 24-hiour format
 
 # 5. Extracting Hashtags
 
