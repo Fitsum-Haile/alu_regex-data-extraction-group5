@@ -17,27 +17,9 @@ sample_text = '''
 
 # 2. Extracting URLs
 
-import re
-
 def extract_urls(text):
-    # Regular expression pattern for URLs
-    url_regex = r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'
-    
-    # Find all matches in the given text
-    urls = re.findall(url_regex, text)
-    
-    return urls
-
-# Example usage
-example_text = """
-    Visit https://www.example.com for more info.
-    You can also check out http://subdomain.example.org/page.
-    Invalid URL: htt://invalid.com should not be captured.
-"""
-
-# Call the function and print the result
-extracted_urls = extract_urls(example_text)
-print("Extracted URLs:", extracted_urls)
+    url_pattern = r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'
+    return re.findall(url_pattern, text)
 
 
 # 3. Extracting Phone Numbers (various formats)
