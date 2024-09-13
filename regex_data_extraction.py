@@ -16,7 +16,7 @@ sample_text = '''
 
 
 # 2. Extracting URLs
-
+print()
 import re
 
 def extract_urls(text):
@@ -34,14 +34,24 @@ example_text = """
     You can also check out http://subdomain.example.org/page.
     Invalid URL: htt://invalid.com should not be captured.
 """
+print()
 
 # Call the function and print the result
+print()
 extracted_urls = extract_urls(example_text)
 print("Extracted URLs:", extracted_urls)
-
+print()
 
 # 3. Extracting Phone Numbers (various formats)
-
+print()
+def extract_phone_numbers(text):
+    phone_pattern = r'\+?\d{1,3}\s*[-.() ]?\d{1,15}\s*[-.() ]?\d{1,15}'
+    phone_numbers = re.findall(phone_pattern, text)
+    return phone_numbers
+# Example usage
+text = "Contact us at +1 (123) 456-7890 or 123.456.7890"
+print("Extracted phone number:", extract_phone_numbers(text))
+print()
 
 # 4. Extracting Time in 12-hour or 24-hour format
 
@@ -56,7 +66,6 @@ cc_regex = r'\b\d{4}(?:[-\s])?\d{4}(?:[-\s])?\d{4}(?:[-\s])?\d{4}\b'
 
 # Find all matches in the given text
 credit_card_numbers = re.findall(cc_regex, sample_text)
-
 print("Extracted Credit card numbers:", credit_card_numbers)
 print()
 
@@ -64,13 +73,18 @@ print()
 
 
 #regex to match HTML tags
+print()
 html_tag_pattern = r'<[^>]+>'
+print()
 
 #extracting all HTML tags using re.findall
+print()
 html_tags = re.findall(html_tag_pattern, sample_text)
+print()
 
 #outputting the extracted tags
+print()
 print("Extracted HTML Tags:", html_tags)
-
+print()
 
 # 8. Extracting Currency Amounts
