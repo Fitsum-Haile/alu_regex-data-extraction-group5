@@ -1,50 +1,64 @@
 import re
 
-# Sample string generated, containing different data types
-sample_text = '''
-    Contact us at info@example.com or support@company.co.uk.
-    Visit our website: https://www.example.com or http://subdomain.example.org/page.
-    Call us at (123) 456-7890, 123-456-7890, or 123.456.7890.
-    Credit card details: 1234 5678 9012 3456 or 1234-5678-9012-3456.
-    The event starts at 14:30 (24-hour format) and ends at 2:30 PM (12-hour format).
-    Tags: <div class="container"> <p>Paragraph</p> <img src="image.jpg" alt="description">
-    Trending: #SoftwareEngineering #ThisIsAHashtag
-    Prices: $19.99, $1,234.56
-'''
+# Function to load sample text from a file
+def load_sample_text(filename):
+    with open(filename, 'r') as file:
+        return file.read()
 
 # 1. Extracting Email Addresses
 
-
 # 2. Extracting URLs
 
+<<<<<<< HEAD
 def extract_urls(text):
     url_pattern = r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'
     return re.findall(url_pattern, text)
 
 
+=======
+>>>>>>> b717810721cf25a3ea4854041e9c53e5c9fc9fa3
 # 3. Extracting Phone Numbers (various formats)
-
 
 # 4. Extracting Time in 12-hour or 24-hour format
 
-
 # 5. Extracting Hashtags
-
 
 # 6. Extracting Credit Card Numbers
 
-
 # 7. Extracting HTML Tags
-
-
-#regex to match HTML tags
-html_tag_pattern = r'<[^>]+>'
-
-#extracting all HTML tags using re.findall
-html_tags = re.findall(html_tag_pattern, sample_text)
-
-#outputting the extracted tags
-print("Extracted HTML Tags:", html_tags)
-
+def extract_html_tags(text):
+    html_tag_pattern = r'</?[a-zA-Z][a-zA-Z0-9\-]*(\s+[a-zA-Z\-]+(\s*=\s*(".*?"|\'.*?\'|[^\s>]+))?)*\s*/?>'
+    return re.findall(html_tag_pattern, text)
 
 # 8. Extracting Currency Amounts
+
+# Main function to load the text and run the extractions
+def main():
+    # Load the sample text from the file
+    sample_text = load_sample_text('sample_text.txt')
+
+    # Extract and print different types of data
+    print()
+    print("------------------------------------------------------------")
+    print("Extracted information")
+    print("------------------------------------------------------------")
+    print()
+    print("Extracted Email Addresses:", extract_emails(sample_text))
+    print()
+    print("Extracted URLs:", extract_urls(sample_text))
+    print()
+    print("Extracted Phone Numbers:", extract_phone_numbers(sample_text))
+    print()
+    print("Extracted Times:", extract_times(sample_text))
+    print()
+    print("Extracted Hashtags:", extract_hashtags(sample_text))
+    print()
+    print("Extracted Credit Card Numbers:", extract_credit_cards(sample_text))
+    print()
+    print("Extracted HTML Tags:", extract_html_tags(sample_text))
+    print()
+    print("Extracted Currency Amounts:", extract_currency_amounts(sample_text))
+    print()
+
+if __name__ == '__main__':
+    main()
