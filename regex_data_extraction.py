@@ -17,6 +17,7 @@ sample_text = '''
 
 # 2. Extracting URLs
 
+url_regex = r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'
 
 # 3. Extracting Phone Numbers (various formats)
 
