@@ -14,6 +14,10 @@ sample_text = '''
 
 # 1. Extracting Email Addresses
 
+emails = re.findall(r'[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', sample_text)
+print ("Email adresses:")
+for email in emails:
+    print (emails)
 
 # 2. Extracting URLs
 
