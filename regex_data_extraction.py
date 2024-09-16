@@ -52,7 +52,7 @@ def main():
     print("Extracted information")
     print("------------------------------------------------------------")
     print()
-    #print("Extracted Email Addresses:", extract_emails(sample_text))
+    print("Extracted Email Addresses:", extract_emails(sample_text))
     print()
     print("Extracted URLs:", extract_urls(sample_text))
     print()
