@@ -1,5 +1,17 @@
 import re
 
+# List of valid HTML tags
+valid_tags = [
+        'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body',
+        'br', 'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del',
+        'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'footer',
+        'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hr', 'html', 'i', 'iframe', 'img', 'input',
+        'ins', 'kbd', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'meta', 'meter', 'nav', 'noscript',
+        'object', 'ol', 'optgroup', 'option', 'output', 'p', 'param', 'picture', 'pre', 'progress', 'q', 'rp', 'rt',
+        'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 'style', 'sub',
+        'summary', 'sup', 'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title',
+        'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr']
+
 # Function to load sample text from a file
 def load_sample_text(filename):
     with open(filename, 'r') as file:
@@ -33,8 +45,14 @@ def extract_credit_cards(text):
     return re.findall(credit_card_pattern, text)
 
 # 7. Extracting HTML Tags
+import re
+
 def extract_html_tags(text):
-    html_tag_pattern = r'</?[a-zA-Z][a-zA-Z0-9\-]*(\s+[a-zA-Z\-]+(\s*=\s*(".*?"|\'.*?\'|[^\s>]+))?)*\s*/?>'
+    
+    # Regular expression pattern to match valid HTML tags
+    html_tag_pattern = r'</?(' + '|'.join(valid_tags) + r')(?:\s+[a-zA-Z\-]+(?:\s*=\s*(?:"[^"]*"|\'[^\']*\'|[^\s>]+))?)*\s*/?>'
+    
+    # Find all matches of the pattern in the text
     return re.findall(html_tag_pattern, text)
 
 # 8. Extracting Currency Amounts
