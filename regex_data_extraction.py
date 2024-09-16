@@ -6,7 +6,9 @@ def load_sample_text(filename):
         return file.read()
 
 # 1. Extracting Email Addresses
-
+def extract_emails (text):
+    email_pattern = r'[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+    return re.findall(email_pattern, text)
 # 2. Extracting URLs
 def extract_urls(text):
     url_pattern = r'https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+'
