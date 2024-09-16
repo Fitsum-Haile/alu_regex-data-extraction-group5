@@ -66,7 +66,7 @@ def main():
     print()
     print("Extracted HTML Tags:", extract_html_tags(sample_text))
     print()
-    #print("Extracted Currency Amounts:", extract_currency_amounts(sample_text))
+    print("Extracted Currency Amounts:", extract_currency_amounts(sample_text))
     print()
 
 if __name__ == '__main__':
