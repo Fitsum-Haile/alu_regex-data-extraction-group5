@@ -38,7 +38,7 @@ def extract_html_tags(text):
     return re.findall(html_tag_pattern, text)
 
 # 8. Extracting Currency Amounts
-def extract_currency(text):
+def extract_currency_amounts(text):
     currency_pattern = r'(?<!\w)([$€£¥₹])?\s?(-?\d{1,3}(,\d{3})*(\.\d{2})?)(?!\w)'
     return re.findall(currency_pattern, text)
 # Main function to load the text and run the extractions
